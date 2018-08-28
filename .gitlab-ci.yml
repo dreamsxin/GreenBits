@@ -1,5 +1,12 @@
 build_tag_release:
   image: greenaddress/android@sha256:979d4491884a2eb7c42beed2918c0ea6a413616a27fae48634f46322e08dfb06
+  variables:
+    GRADLE_USER_HOME: $CI_PROJECT_DIR/.gradle
+  cache:
+    key: $CI_PROJECT_NAME
+    paths:
+      - .gradle/wrapper/
+      - .gradle/caches/
   artifacts:
     name: "greenbits-release-$CI_COMMIT_REF_NAME"
     expire_in: 1 hour
